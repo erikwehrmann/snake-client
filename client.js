@@ -4,6 +4,11 @@ const connect = function() {
     host: '165.227.47.243',
     port: 50541
   });
+  
+  conn.on('connect', () => {
+    console.log("Successfully established connection");
+    conn.write("Name: EJW");
+  });
 
   conn.setEncoding('utf8');
   
