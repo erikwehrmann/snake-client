@@ -24,6 +24,15 @@ const connect = function() {
     });
   });
 
+  process.stdin.on('data', (input) => {
+    if (input === "q") {
+      conn.write("Say: I did it!")
+    };
+    if (input === "e") {
+      conn.write("Say: WOOOOOOO!")
+    };
+  })
+
 
   return conn;
 };
