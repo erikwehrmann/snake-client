@@ -1,4 +1,3 @@
-const { clear } = require('console');
 const net = require('net');
 const connect = function() {
   const conn = net.createConnection({
@@ -17,22 +16,8 @@ const connect = function() {
   });
   
   process.stdin.on('data', (input) => {
-    process.stdin.setEncoding('utf8');
-    let move = input.toString().trim();
-    if (move == 'w') {
-      move = 'up'
-    }
-    if (move == 's') {
-      move = 'down'
-    }
-    if (move == 'a') {
-      move = "left"
-    }
-    if (move == 'd') {
-      move = "right"
-    }
     var movement = setInterval (() => {
-      conn.write(`Move: ${move}`);
+      conn.write(`Move: ${input}`);
     }, 150);
     process.stdin.on('data', (input) => {
       clearInterval(movement)
