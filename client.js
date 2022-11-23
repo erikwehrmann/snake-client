@@ -33,7 +33,7 @@ const connect = function() {
     }
     var movement = setInterval (() => {
       conn.write(`Move: ${move}`);
-    }, 50);
+    }, 150);
     process.stdin.on('data', (input) => {
       clearInterval(movement)
     });
